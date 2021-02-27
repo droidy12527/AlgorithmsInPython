@@ -21,7 +21,7 @@ bool mountainClimbing(vector<int> values){
 
 
 int main(){
-    vector<int> m = { 1, 2, 3, 4, 5, 2, 9 ,1};
+    vector<int> m = { 1, 2, 3, 4, 5, 2 ,1 };
     bool ismountainclimbing = mountainClimbing(m);
     if(ismountainclimbing){
         cout<<"It is an mountainclimbing array"<<endl;
