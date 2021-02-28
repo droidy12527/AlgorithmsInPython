@@ -2,7 +2,7 @@
 
 using namespace std;
 
-//First Occurance of Element in Sorted Array
+//Find the last occurance
 
 int findOccurance(vector<int> numbers, int target){
     int left = 0;
@@ -10,11 +10,11 @@ int findOccurance(vector<int> numbers, int target){
     while(left <= right){
         int mid = (left + right) / 2;
         if(numbers[mid] == target){
-            if(mid == 0 || numbers[mid] != numbers[mid -1 ]){
+            if(mid == numbers.size() || numbers[mid + 1] != target){
                 return mid;
             }
-            right = right - 1;
-        }else if(numbers[mid] > target){
+            left = left + 1;
+        }else if(numbers[mid] > right){
             right = mid - 1;
         }else{
             left = mid + 1;

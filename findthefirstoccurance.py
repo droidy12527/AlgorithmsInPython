@@ -8,7 +8,7 @@ def firstOccurance(arr, el):
         if arr[mid] == el:
             if arr[mid-1] != el or mid == 0:
                 return mid
-            right = mid -1
+            right = right -1
         elif arr[mid] > el:
             right = mid - 1
         else:

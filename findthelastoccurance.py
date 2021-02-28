@@ -10,9 +10,9 @@ def firstOccurance(arr, el):
                 return mid
             left = left + 1 
         elif arr[mid] > el:
-            right = right - 1
+            right = mid - 1
         else:
-            left = left + 1
+            left = mid + 1
 
 
 
