@@ -2,6 +2,8 @@
 
 using namespace std;
 
+//Find the missing number using Gauss formula
+
 int findMissing(vector<int> numbers){
     int sum = 0;
     int number_size = numbers.size();
