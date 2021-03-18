@@ -6,8 +6,10 @@ vector<vector<int>> findSubsets(vector<int> numbers, vector<vector<int>> answer 
     if(position >= numbers.size()){
         return answer;
     }
-    answer.push_back(current);
-    for(int i = 0; i < numbers.size(); ++i){
+    vector<int> copy_vector;
+    copy_vector.assign(current.begin(), current.end());
+    answer.push_back(copy_vector);
+    for(int i = position; i < numbers.size(); ++i){
         auto find_number = find(current.begin(), current.end(), numbers[i]);
         if(find_number == current.end()){
            current.push_back(numbers[i]);
@@ -15,6 +17,7 @@ vector<vector<int>> findSubsets(vector<int> numbers, vector<vector<int>> answer 
            current.pop_back();
         }
     }
+    return answer;
 }
 
 
