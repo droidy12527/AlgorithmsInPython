@@ -2,32 +2,34 @@
 
 using namespace std;
 
-vector<vector<int>> findSubsets(vector<int> numbers, vector<vector<int>> answer = {}, vector<int> current = {}, int position = 0){
-    if(position >= numbers.size()){
-        return answer;
-    }
-    vector<int> copy_vector;
-    copy_vector.assign(current.begin(), current.end());
-    answer.push_back(copy_vector);
-    for(int i = position; i < numbers.size(); ++i){
-        auto find_number = find(current.begin(), current.end(), numbers[i]);
-        if(find_number == current.end()){
-           current.push_back(numbers[i]);
-           findSubsets(numbers, answer, current, i);
-           current.pop_back();
-        }
-    }
-    return answer;
-}
-
-
-int main(){
-    vector<int> numbers = { 1, 2, 3};
-    vector<vector<int>> solution = findSubsets(numbers);
-    for(auto prathamesh: solution){
-        for(auto hello: prathamesh){
-            cout<<hello<<endl;
-        }
-    }
-    return 0;
-}
+void subsetsUtil(vector<int>& A, vector<vector<int> >& res, vector<int>& subset, int index) { 
+    res.push_back(subset); 
+    for (int i = index; i < A.size(); i++) {  
+        subset.push_back(A[i]); 
+        subsetsUtil(A, res, subset, i + 1); 
+        subset.pop_back(); 
+    } 
+    return; 
+} 
+  
+vector<vector<int> > subsets(vector<int>& A){ 
+    vector<int> subset; 
+    vector<vector<int> > res; 
+    int index = 0; 
+    subsetsUtil(A, res, subset, index); 
+  
+    return res; 
+} 
+  
+int main() 
+{ 
+    vector<int> array = { 1, 2, 3 };  
+    vector<vector<int> > res = subsets(array); 
+    for (int i = 0; i < res.size(); i++) { 
+        for (int j = 0; j < res[i].size(); j++) 
+            cout << res[i][j] << " "; 
+        cout << endl; 
+    } 
+  
+    return 0; 
+} 
