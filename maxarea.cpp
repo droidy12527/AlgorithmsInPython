@@ -18,7 +18,7 @@ int findMaxArea(vector<int> numbers){
 }
 
 int main(){
-    vector<int> numbers = { 1, 7 , 3, 5, 3, 2, 6 };
+    vector<int> numbers = { 1,8,6,2,5,4,8,3,7 };
     int max_area = findMaxArea(numbers);
     if(max_area == -1){
         cout<<"There was error in finding the max area"<<endl;
